@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Habit tracker | HabitForge{% endblock %}
+{% block content %}
+<h1 class="page-title">Habit tracker</h1>
+
+<div class="stats" id="stats"></div>
+
+<div class="dash">
+  <section class="card" id="calendar-card">
+    <div class="cal-head">
+      <button class="icon-btn" id="prev-month" aria-label="Previous month">&lsaquo;</button>
+      <h3 id="month-label"></h3>
+      <button class="icon-btn" id="next-month" aria-label="Next month">&rsaquo;</button>
+    </div>
+    <div class="cal-grid cal-dow">
+      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+    </div>
+    <div class="cal-grid" id="cal-days"></div>
+    <div class="legend muted">
+      <span><i class="dot dot-full"></i> All done</span>
+      <span><i class="dot dot-part"></i> Partial</span>
+      <button class="link-btn" id="go-today">Jump to today</button>
+    </div>
+  </section>
+
+  <div class="stack">
+    <section class="card">
+      <div class="day-head">
+        <div>
+          <h2 id="day-title"></h2>
+          <p class="muted" id="day-sub"></p>
+        </div>
+        <div class="ring" id="day-ring"></div>
+      </div>
+      <div class="bar"><div id="day-bar"></div></div>
+    </section>
+
+    <section class="card">
+      <h3>Habits</h3>
+      <ul class="checklist" id="habit-list"></ul>
+      <form class="inline-form" id="habit-form">
+        <input id="habit-input" placeholder="Add a habit (e.g. Walk 8,000 steps)" maxlength="60">
+        <button class="btn btn-small" type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row-between">
+        <h3 id="workout-title">Workout</h3>
+        <button class="link-btn" id="edit-plan-btn">Edit plan</button>
+      </div>
+      <ul class="checklist" id="workout-list"></ul>
+      <div id="plan-editor" class="plan-editor" hidden>
+        <p class="muted" id="plan-hint"></p>
+        <div class="inline-form">
+          <select id="plan-muscle"></select>
+          <select id="plan-exercise"></select>
+          <button class="btn btn-small" id="plan-add" type="button">Add</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

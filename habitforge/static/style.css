@@ -1,0 +1,170 @@
+:root {
+  --bg: #111a15;
+  --panel: #16221b;
+  --panel-2: #1b2a22;
+  --line: #24352b;
+  --text: #f1f6f3;
+  --muted: #8fa699;
+  --accent: #4cc98a;
+  --accent-ink: #0c1a12;
+  --danger: #e5645a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Barlow", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px 80px; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); font-weight: 600; }
+[hidden] { display: none !important; }
+
+h1, h2, h3, .logo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+h3 { font-size: 22px; margin-bottom: 10px; }
+h2 { font-size: 30px; }
+.page-title { font-size: 56px; line-height: 1.05; margin: 36px 0 18px; }
+
+/* nav */
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; border-bottom: 1px solid var(--line);
+}
+.logo { color: var(--accent); font-size: 34px; text-decoration: none; }
+.nav nav { display: flex; align-items: center; gap: 22px; }
+.nav nav a { color: var(--text); text-decoration: none; font-weight: 500; }
+.nav nav a:hover { color: var(--accent); }
+.nav nav a.btn { color: var(--accent-ink); }
+
+.banner {
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+  padding: 10px 14px; border-radius: 8px; margin-top: 16px; font-size: 14px;
+}
+
+/* buttons / forms */
+.btn {
+  display: inline-block; background: var(--accent); color: var(--accent-ink);
+  border: 0; border-radius: 8px; padding: 14px 22px; font: 600 16px "Barlow", sans-serif;
+  cursor: pointer; text-decoration: none; text-align: center;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn-small { padding: 7px 14px; font-size: 14px; }
+.btn-block { width: 100%; margin-top: 18px; }
+.btn-ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.link-btn { background: none; border: 0; color: var(--accent); cursor: pointer; font: inherit; padding: 0; }
+.icon-btn {
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+  width: 34px; height: 34px; border-radius: 8px; font-size: 20px; cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--accent); }
+
+.form { max-width: 475px; margin-bottom: 18px; }
+.form label { display: block; font-weight: 600; margin: 22px 0 8px; }
+input, select {
+  width: 100%; background: var(--panel); color: var(--text);
+  border: 1px solid var(--line); border-radius: 8px; padding: 14px; font: inherit;
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+.form small { display: block; margin-top: 12px; }
+
+.inline-form { display: flex; gap: 10px; align-items: center; }
+.inline-form input, .inline-form select { padding: 10px 12px; }
+.card.inline-form { margin-bottom: 20px; }
+
+/* layout bits */
+.hero { padding: 70px 0 40px; }
+.hero h1 { font-size: clamp(48px, 9vw, 92px); line-height: 0.98; margin-bottom: 18px; }
+.hero p { font-size: 19px; max-width: 560px; }
+.row { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+.row-between { display: flex; justify-content: space-between; align-items: baseline; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.stack { display: grid; gap: 16px; align-content: start; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+.stat b { display: block; font: 700 36px "Barlow Condensed", sans-serif; color: var(--accent); }
+.stat span { color: var(--muted); font-size: 14px; }
+
+/* dashboard */
+.dash { display: grid; grid-template-columns: 340px 1fr; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .dash { grid-template-columns: 1fr; } .page-title { font-size: 42px; } }
+
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.cal-head h3 { margin: 0; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow span { text-align: center; color: var(--muted); font-size: 12px; padding: 4px 0; }
+.cal-day {
+  position: relative; aspect-ratio: 1; border: 1px solid transparent; background: var(--panel-2);
+  color: var(--text); border-radius: 8px; cursor: pointer; font: 500 14px "Barlow", sans-serif;
+}
+.cal-day:hover { border-color: var(--accent); }
+.cal-day.blank { background: transparent; cursor: default; border: 0; }
+.cal-day.today { border-color: var(--muted); }
+.cal-day.selected { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.cal-day .dot { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+.dot-full { background: var(--accent); }
+.dot-part { background: transparent; border: 1.5px solid var(--accent); }
+.cal-day.selected .dot-full { background: var(--accent-ink); }
+.cal-day.selected .dot-part { border-color: var(--accent-ink); }
+.legend { display: flex; gap: 14px; margin-top: 14px; font-size: 13px; align-items: center; flex-wrap: wrap; }
+.legend .link-btn { margin-left: auto; }
+
+.day-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.ring {
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 18px "Barlow Condensed", sans-serif; flex-shrink: 0;
+}
+.ring span { background: var(--panel); width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; }
+.bar { height: 8px; background: var(--panel-2); border-radius: 99px; margin-top: 14px; overflow: hidden; }
+.bar div { height: 100%; width: 0; background: var(--accent); transition: width .25s; }
+
+.checklist { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+.checklist li {
+  display: flex; align-items: center; gap: 12px; background: var(--panel-2);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+}
+.checklist li.done .label { text-decoration: line-through; color: var(--muted); }
+.checklist input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); padding: 0; flex-shrink: 0; }
+.checklist .label { flex: 1; }
+.checklist .label small { display: block; color: var(--muted); }
+.x-btn { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 20px; line-height: 1; }
+.x-btn:hover { color: var(--danger); }
+.empty { color: var(--muted); font-size: 14px; padding: 6px 2px; }
+.plan-editor { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.plan-editor .inline-form { flex-wrap: wrap; }
+.plan-editor select { flex: 1; min-width: 140px; }
+
+/* notes */
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+.note h3 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.note .progress { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+.note .inline-form { margin-top: 4px; }
+
+/* exercises */
+.filters { display: grid; gap: 14px; margin: 18px 0 22px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--panel); border: 1px solid var(--line); color: var(--text);
+  border-radius: 99px; padding: 6px 14px; cursor: pointer; font: 500 14px "Barlow", sans-serif;
+}
+.chip.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.ex { display: flex; flex-direction: column; gap: 6px; }
+.ex h3 { margin: 0; }
+.tag { display: inline-block; font-size: 12px; background: var(--panel-2); color: var(--accent); border-radius: 99px; padding: 2px 10px; width: fit-content; }
+.ex .scheme { font: 700 20px "Barlow Condensed", sans-serif; }
+.ex .inline-form { margin-top: auto; padding-top: 8px; }

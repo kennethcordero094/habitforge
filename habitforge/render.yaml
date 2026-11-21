@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: habitforge
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      # Leave these two out to run in DEMO MODE. Add them to use Supabase.
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Small habits.<br>Big results.</h1>
+  <p class="muted">A daily habit tracker with a calendar, a weekly workout plan and to-do notes. Includes 100 exercises across 10 muscle groups.</p>
+  <div class="row">
+    <a class="btn" href="{{ url_for('demo') }}">Try the demo</a>
+    <a class="btn btn-ghost" href="{{ url_for('register') }}">Create account</a>
+  </div>
+</section>
+
+<section class="grid3">
+  <div class="card"><h3>Daily habits</h3><p class="muted">Tick off your habits and today's workout. Watch your streak grow.</p></div>
+  <div class="card"><h3>Calendar</h3><p class="muted">Pick any date and see exactly what you finished that day.</p></div>
+  <div class="card"><h3>Notes and to-dos</h3><p class="muted">Create checklists for meal prep, gym bag, goals, anything.</p></div>
+</section>
+{% endblock %}

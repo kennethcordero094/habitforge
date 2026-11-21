@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Notes | HabitForge{% endblock %}
+{% block content %}
+<h1 class="page-title">Notes and to-dos</h1>
+
+<form class="card inline-form" id="note-form">
+  <input id="note-title" placeholder="New note title (e.g. Meal prep list)" maxlength="80" required>
+  <button class="btn btn-small" type="submit">Create note</button>
+</form>
+
+<div class="notes-grid" id="notes-grid"></div>
+<p class="muted" id="notes-empty" hidden>No notes yet. Create your first checklist above.</p>
+{% endblock %}

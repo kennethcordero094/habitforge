@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}HabitForge{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-demo="{{ '1' if demo_mode else '0' }}"
+      data-auth="{{ '1' if user_email else '0' }}"
+      data-email="{{ user_email or '' }}"
+      data-page="{{ page or '' }}">
+
+  <div class="wrap">
+    <header class="nav">
+      <a class="logo" href="{{ url_for('home') }}">HabitForge</a>
+      <nav>
+        <a href="{{ url_for('exercises') }}">Exercises</a>
+        {% if user_email %}
+          <a href="{{ url_for('dashboard') }}">Habits</a>
+          <a href="{{ url_for('notes') }}">Notes</a>
+          <a href="{{ url_for('logout') }}">Log out</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Log in</a>
+          <a class="btn btn-small" href="{{ url_for('register') }}">Sign up</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    {% if demo_mode and user_email %}
+      <div class="banner">Demo mode: your data is saved only in this browser. Connect Supabase to sync across devices.</div>
+    {% endif %}
+
+    <main>{% block content %}{% endblock %}</main>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
